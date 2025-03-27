@@ -1,23 +1,58 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Posaro Metals</title>
+    <title>POSARO METALS</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="login-screen">
-        <h2>Ingrese la clave</h2>
-        <input type="password" id="password" maxlength="4" placeholder="Ingrese clave de 4 dígitos">
-        <button onclick="checkPassword()">Ingresar</button>
-    </div>
-    <div id="app" style="display:none;">
-        <h1>Posaro Metals</h1>
-        <p>Creador: Cristhian J. M. A</p>
-        <button onclick="calculateGold()">Calcular Precio</button>
-    </div>
+    <header>
+        <h1 class="title">POSARO METALS</h1>
+        <p class="creator">Técnico: Cristhian</p>
+    </header>
+
+    <main>
+        <section class="selection">
+            <label for="goldType">Selecciona el tipo de oro:</label>
+            <select id="goldType" onchange="toggleGoldSection()">
+                <option value="processed">Oro Procesado</option>
+                <option value="raw">Oro en Bruto</option>
+            </select>
+        </section>
+
+        <section id="processedGold" class="gold-section">
+            <label for="karat">Kilataje:</label>
+            <select id="karat">
+                <option value="24">24K</option>
+                <option value="22">22K</option>
+                <option value="18">18K</option>
+                <option value="16">16K</option>
+                <option value="14">14K</option>
+            </select>
+            <label for="weight">Peso en gramos:</label>
+            <input type="number" id="weight" min="0" placeholder="Ingrese el peso">
+            <button onclick="calculatePrice()">Calcular</button>
+            <p id="processedResult"></p>
+        </section>
+
+        <section id="rawGold" class="gold-section hidden">
+            <label for="rawType">Tipo de Oro en Bruto:</label>
+            <select id="rawType">
+                <option value="venoso">Venoso</option>
+                <option value="semi_venoso">Semi Venoso</option>
+                <option value="escarchado">Escarchado</option>
+                <option value="semi_escarchado">Semi Escarchado</option>
+            </select>
+            <label for="rawWeight">Peso en kilos:</label>
+            <input type="number" id="rawWeight" min="0" placeholder="Ingrese el peso">
+            <button onclick="calculateRawPrice()">Calcular</button>
+            <p id="rawResult"></p>
+        </section>
+    </main>
+
+    <button id="sendToWhatsApp" class="hidden" onclick="sendToWhatsApp()">Enviar a WhatsApp</button>
+
     <script src="script.js"></script>
 </body>
 </html>
