@@ -1,0 +1,23 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posaro Metals</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="login-screen">
+        <h2>Ingrese la clave</h2>
+        <input type="password" id="password" maxlength="4" placeholder="Ingrese clave de 4 dígitos">
+        <button onclick="checkPassword()">Ingresar</button>
+    </div>
+    <div id="app" style="display:none;">
+        <h1>Posaro Metals</h1>
+        <p>Creador: Cristhian J. M. A</p>
+        <button onclick="calculateGold()">Calcular Precio</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
